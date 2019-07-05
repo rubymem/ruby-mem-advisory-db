@@ -1,0 +1,9 @@
+---
+gem: oj
+url: https://github.com/ohler55/oj/issues/229
+title: Memory Leak using Oj::Doc.open
+date: 2015-04-18
+description: |
+ Oj::Doc.open steadily increases memory usage.
+leaky_versions:
+  - "< 2.12.4"

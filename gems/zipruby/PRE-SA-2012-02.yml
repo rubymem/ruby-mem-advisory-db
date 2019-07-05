@@ -1,0 +1,9 @@
+---
+gem: zipruby
+url: https://packetstormsecurity.com/files/111242/libzip-0.10-Heap-Overflow-Information-Leak.html
+title: Heap overflow, information leak
+date: 2012-03-21
+description: |
+ libzip  has two vulnerabilities that may lead to a heap overflow or an information leak via corrupted zip files.
+leaky_versions:
+  - "<= 0.3.6"
