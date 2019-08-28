@@ -7,3 +7,5 @@ description: |
   Before starting to execute the task, Processor does an async call to Manager (real_thread method) to add processor's thread to @threads hash in Manager
 leaky_versions:
   - "< 3.5.1"
+patched_versions:
+  - ">= 3.5.1"

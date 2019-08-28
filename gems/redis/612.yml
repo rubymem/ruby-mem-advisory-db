@@ -1,9 +1,12 @@
 ---
 gem: redis
 url: https://github.com/redis/redis-rb/issues/612
-title: Memory Leak using Celluloid::Future
+title: Memory leak due to Timeout creating threads on each invocation.
 date: 2016-04-25
 description: |
  write_timeout results in lots of short-lived threads created, since each timeout block creates a separate thread. Now every write to Redis requires the creation of a new Thread.
 leaky_versions:
+  - "= 3.2.2"
   - "= 3.3.0"
+patched_versions:
+  - ">= 3.3.1"

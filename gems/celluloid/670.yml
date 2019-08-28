@@ -8,3 +8,6 @@ description: |
   that it creates.
 leaky_versions:
   - "> 0.16.0, < 0.17.2"
+patched_versions:
+  - ">= 0.17.3"
+
