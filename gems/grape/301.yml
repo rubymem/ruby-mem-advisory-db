@@ -7,3 +7,5 @@ description: |
   The call for .to_sym will leak the symbol since those are never garbage collected. Malicious users can abuse.
 leaky_versions:
   - "< 0.2.5"
+patched_versions:
+  - ">= 0.10"
