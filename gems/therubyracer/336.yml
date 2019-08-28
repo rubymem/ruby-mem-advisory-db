@@ -1,0 +1,13 @@
+---
+gem: therubyracer
+url: https://github.com/cowboyd/therubyracer/pull/336
+title: Memory leak in WeakValueMap
+date: 2015-03-31
+description: |
+  Entries were not being cleaned up correctly from the backing store.
+leaky_versions:
+  - "< 0.12.2"
+unaffected_versions:
+  - "~> 0.12.3"
+patched_versions:
+  - "~> 0.12.3"

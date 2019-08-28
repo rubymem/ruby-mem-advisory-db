@@ -1,0 +1,9 @@
+---
+gem: sidekiq
+url: https://github.com/mperham/sidekiq/pull/2598
+title: Memory Leak in Sidekiq::Manager#real_thread
+date: 2015-10-09
+description: |
+  Before starting to execute the task, Processor does an async call to Manager (real_thread method) to add processor's thread to @threads hash in Manager
+leaky_versions:
+  - "< 3.5.1"

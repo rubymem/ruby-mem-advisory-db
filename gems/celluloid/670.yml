@@ -1,0 +1,10 @@
+---
+gem: celluloid
+url: https://github.com/celluloid/celluloid/issues/670
+title: Memory Leak using Celluloid::Future
+date: 2015-08-31
+description: |
+  The Celluloid::Group::Spawner appears to never clean up the completed Threads
+  that it creates.
+leaky_versions:
+  - "> 0.16.0, < 0.17.2"

@@ -1,0 +1,9 @@
+---
+gem: sidekiq-statistic
+url: https://github.com/davydovanton/sidekiq-statistic/issues/73
+title: Memory Leak since timeslist does not expire
+date: 2015-09-15
+description: |
+  The timeslist should be expired after some amount of time and the times aggregated into a much more compact form.
+leaky_versions:
+  - "<= 1.2"
