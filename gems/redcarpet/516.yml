@@ -10,3 +10,5 @@ description: |
  This caused 312 leaked bytes (on a 64-bit machine) on every render call
 leaky_versions:
   - "< 3.3.3"
+patched_versions:
+  - ">= 3.3"
