@@ -7,3 +7,5 @@ description: |
  Oj::Doc.open steadily increases memory usage.
 leaky_versions:
   - "< 2.12.4"
+patched_versions:
+  - ">= 2.12.4"
