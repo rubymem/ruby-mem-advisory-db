@@ -1,0 +1,14 @@
+---
+gem: net-http-persistent
+url: "https://github.com/drbrain/net-http-persistent/pull/98"
+title: Memory leak in thread connection pool of net-http-persistent
+date: 2015-04-08
+description: |
+  3.0.0 introduced a memory leak when it switched to connection pooling. We're
+  setting a thread local but then never clearing the local. If the pool is used
+  in the main thread, it will never die and the locals will stick around for
+  the life of the process.
+leaky_versions:
+  - "= 3.0.0"
+patched_versions:
+  - "> 3.0.0"
