@@ -1,19 +1,18 @@
-# Ruby Advisory Database
+# Ruby Leaky gems Database
 
-The Ruby Mem Database is a community effort to compile all memory leaks that are relevant to Ruby gems.
+The RubyMem Database is a community effort to compile all known memory leaks that are relevant to Ruby gems.
 
 You can check your own Gemfile.locks against this database by using [bundler-leak](https://github.com/rubymem/bundler-leak).
 
 ## Support Ruby security!
 
-Do you know about a memory leak that isn't listed in this database? Open an issue, submit a PR, or [use this form](https://rubymem.com/advisories/new) which will email the maintainers.
+Do you know about a knwon memory leak that isn't listed in this database? Open an issue, submit a PR, or [use this form](https://rubymem.com/advisories/new) which will email the maintainers.
 
 ## Directory Structure
 
 The database is a list of directories that match the names of Ruby libraries on
 [rubygems.org]. Within each directory are one or more files
-for the Ruby library. These  files are named using
-the advisories can be named however you want, in this example it is named after the PR number in github.
+for the Ruby library. These files can be named however you want, in this example it is named after the PR number in github.
 
     gems/:
       celluloid/:
@@ -23,22 +22,18 @@ the advisories can be named however you want, in this example it is named after 
 ## Format
 
 Each file contains the information in [YAML] format:
-
     ---
-    gem: examplegem
+    gem: celluloid
     url: https://github.com/celluloid/celluloid/issues/670
-    title: Memory Leak using Examplegem::Future
+    title: Memory Leak using Celluloid::Future
     date: 2015-08-31
     description: |
-      The ExampleGem::Group::Spawner appears to never clean up the completed Threads
+      The Celluloid::Group::Spawner appears to never clean up the completed Threads
       that it creates.
     leaky_versions:
-      - "> 0.16.0, < 0.17.2
+      - "> 0.16.0, < 0.17.2"
     patched_versions:
-      - "~> 0.17.3"
-    unaffected_versions:
-      - < 0.16.0
-
+      - ">= 0.17.3"
 
 ### Schema
 
@@ -50,6 +45,7 @@ Each file contains the information in [YAML] format:
 * `title` \[String\]: The title of the advisory or individual vulnerability.
 * `date` \[Date\]: The public disclosure date of the advisory.
 * `description` \[String\]: One or more paragraphs describing the vulnerability.
+* `leaky_versions` \[String\]: The version requirement of the gem with a known memory leak.
 * `unaffected_versions` \[Array\<String\>\] (optional): The version requirements for the
   unaffected versions of the Ruby library.
 * `patched_versions` \[Array\<String\>\]: The version requirements for the
