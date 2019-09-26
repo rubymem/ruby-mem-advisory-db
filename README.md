@@ -1,4 +1,4 @@
-# Ruby Leaky gems Database
+# Ruby Leaky Gems Database
 
 The RubyMem Database is a community effort to compile all known memory leaks that are relevant to Ruby gems.
 
