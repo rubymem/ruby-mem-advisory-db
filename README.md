@@ -6,7 +6,7 @@ You can check your own Gemfile.locks against this database by using [bundler-lea
 
 ## Support Ruby security!
 
-Do you know about a knwon memory leak that isn't listed in this database? Open an issue, submit a PR, or [use this form](https://rubymem.com/advisories/new) which will email the maintainers.
+Do you know about a known memory leak that isn't listed in this database? Open an issue, submit a PR, or [use this form](https://rubymem.com/advisories/new) which will email the maintainers.
 
 ## Directory Structure
 
