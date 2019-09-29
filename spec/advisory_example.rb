@@ -7,25 +7,9 @@ shared_examples_for 'Advisory' do |path|
   describe path do
     let(:filename) { File.basename(path) }
 
-    let(:filename_cve) do
-      if filename.start_with?('CVE-')
-        filename.gsub('CVE-','')
-      end
-    end
-
-    let(:filename_osvdb) do
-      if filename.start_with?('OSVDB-')
-        filename.gsub('OSVDB-','')
-      end
-    end
-
-    it "should be correctly named CVE-XXX or OSVDB-XXX" do
+    it "should be correctly named" do
       expect(filename).
-        to match(/^(CVE-\d{4}-(0\d{3}|[1-9]\d{3,})|OSVDB-\d+)\.yml$/)
-    end
-
-    it "should have CVE or OSVDB" do
-      expect(advisory['cve'] || advisory['osvdb']).not_to be_nil
+        to match(/^.+\.yml$/)
     end
 
     describe "framework" do
@@ -44,32 +28,6 @@ shared_examples_for 'Advisory' do |path|
       end
     end
 
-    describe "cve" do
-      subject { advisory['cve'] }
-
-      it "may be nil or a String" do
-        expect(subject).to be_kind_of(String).or(be_nil)
-      end
-      it "should be id in filename if filename is CVE-XXX" do
-        if filename_cve
-          is_expected.to eq(filename_cve.chomp('.yml'))
-        end
-      end
-    end
-
-    describe "osvdb" do
-      subject { advisory['osvdb'] }
-
-      it "may be nil or a Integer" do
-        expect(subject).to be_kind_of(Integer).or(be_nil)
-      end
-
-       it "should be id in filename if filename is OSVDB-XXX" do
-        if filename_osvdb
-          is_expected.to eq(filename_osvdb.to_i)
-        end
-      end
-    end
 
     describe "url" do
       subject { advisory['url'] }
@@ -96,42 +54,6 @@ shared_examples_for 'Advisory' do |path|
 
       it { is_expected.to be_kind_of(String) }
       it { is_expected.not_to be_empty }
-    end
-
-    describe "cvss_v2" do
-      subject { advisory['cvss_v2'] }
-
-      it "may be nil or a Float" do
-        expect(subject).to be_kind_of(Float).or(be_nil)
-      end
-
-      case advisory['cvss_v2']
-      when Float
-        context "when a Float" do
-          it { expect((0.0)..(10.0)).to include(subject) }
-        end
-      end
-    end
-
-    describe "cvss_v3" do
-      subject { advisory['cvss_v3'] }
-
-      it "may be nil or a Float" do
-        expect(subject).to be_kind_of(Float).or(be_nil)
-      end
-
-      case advisory['cvss_v3']
-      when Float
-        context "when a Float" do
-          it { expect((0.0)..(10.0)).to include(subject) }
-        end
-      end
-
-      if advisory['cvss_v2']
-        it "should also provide a cvss_v2 score" do
-          expect(advisory['cvss_v2']).to_not be_nil
-        end
-      end
     end
 
     describe "patched_versions" do
@@ -192,8 +114,8 @@ shared_examples_for 'Advisory' do |path|
       when Hash
         advisory["related"].each_pair do |name, values|
           describe name do
-            it "should be either a cve, an osvdb or a url" do
-              expect(["cve", "osvdb", "url"]).to include(name)
+            it "should be either a url" do
+              expect(["url"]).to include(name)
             end
 
             it "should always contain an array" do
