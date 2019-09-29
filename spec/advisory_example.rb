@@ -114,8 +114,8 @@ shared_examples_for 'Advisory' do |path|
       when Hash
         advisory["related"].each_pair do |name, values|
           describe name do
-            it "should be either a cve, an osvdb or a url" do
-              expect(["cve", "osvdb", "url"]).to include(name)
+            it "should be either a url" do
+              expect(["url"]).to include(name)
             end
 
             it "should always contain an array" do
