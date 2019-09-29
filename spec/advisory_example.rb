@@ -7,9 +7,9 @@ shared_examples_for 'Advisory' do |path|
   describe path do
     let(:filename) { File.basename(path) }
 
-    it "should be correctly named CVE-XXX or OSVDB-XXX" do
+    it "should be correctly named" do
       expect(filename).
-        to match(/^(CVE-\d{4}-(0\d{3}|[1-9]\d{3,})|OSVDB-\d+)\.yml$/)
+        to match(/^.+\.yml$/)
     end
 
     describe "framework" do
