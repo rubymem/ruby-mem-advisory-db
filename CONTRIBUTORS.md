@@ -3,6 +3,7 @@
 This database would not be possible without volunteers willing to submit pull requests. In no particular order, we'd like to thank:
 
 # Contributors
+- [Sergey Alekseev](https://github.com/sergey-alekseev)
 - [Graham Conzett @conzett](https://github.com/conzett)
 - [Jacob Oakes @oakesja](https://github.com/oakesja)
 - [Juan Ignacio Sánchez Lara @juanignaciosl](https://github.com/juanignaciosl)
