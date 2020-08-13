@@ -1,0 +1,12 @@
+---
+gem: grape
+date: 2020-07-10
+url: https://github.com/ruby-grape/grape/pull/2084
+title: Memory leak in grape
+description: A flaw in how grape caches paths means that a copy of each unique path
+  seen was retained. If paths contain a variable (e.g. the id of a resource) this would
+  lead to unbound memory usage
+unaffected_versions:
+- "< 1.3.0"
+patched_versions:
+- ">= 1.4.0"
