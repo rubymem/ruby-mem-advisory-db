@@ -11,4 +11,4 @@ description: |
 leaky_versions:
   - "< 3.3.3"
 patched_versions:
-  - ">= 3.3"
+  - ">= 3.3.3"
