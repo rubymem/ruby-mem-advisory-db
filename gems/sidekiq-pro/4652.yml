@@ -1,0 +1,8 @@
+gem: sidekiq-pro
+date: 2020-06-24
+url: https://github.com/mperham/sidekiq/issues/4652
+title: Leak in sidekiq when workers have unhandled exceptions
+description: |
+  When a job raises an exception and it is handled by Sidekiq itself, when using Sidekiq Pro, a reference leak occurs.
+patched_versions:
+- ">= 5.2.0"
