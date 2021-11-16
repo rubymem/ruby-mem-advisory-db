@@ -8,6 +8,8 @@ description: Some cleanup code in Ethon is not called when the object is garbage
   + file description starvation.
 unaffected_versions:
 - "<= 0.12.0"
+patched_versions:
+- ">= 0.15.0"
 related_links:
 - 'Commit introducing the issue: https://github.com/typhoeus/ethon/commit/b4899b952f85d089358f599c71b0cf7b03db6c39'
 - 'First report about stale socket: https://github.com/typhoeus/ethon/issues/194'
